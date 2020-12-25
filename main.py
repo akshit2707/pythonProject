@@ -41,7 +41,7 @@ def run_phoenix():
 
         command = take_command()
         print(command)
-        if 'hey' in command:
+        if 'hey' in command or command == 'hello':
             talk('hi user, how are you today. hope you are fine ')
         elif 'hello world' in command:
             talk('Nigga what')
@@ -50,7 +50,7 @@ def run_phoenix():
             try:
                 song = command.replace('play', '')
                 talk('playing ' + song)
-                # py.playonyt('jai ho')
+                # py.playonyt(song)
             except Exception as e:
                 print e
         elif 'time' in command:
@@ -73,7 +73,7 @@ def run_phoenix():
         elif(command==''):
             talk('Please say the command again or speak up something.')
         else:
-            talk('Sorry, akshit did not trained me for this')
+            talk('Sorry, Akshit did not trained me for this')
 
 
 
