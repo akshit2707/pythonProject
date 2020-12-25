@@ -1,6 +1,6 @@
 import speech_recognition as sr
 import pyttsx3
-# import pywhatkit
+# import pywhatkit as py
 import datetime
 import wikipedia
 import pyjokes
@@ -47,9 +47,12 @@ def run_phoenix():
             talk('Nigga what')
 
         elif 'play' in command:
-            song = command.replace('play', '')
-            talk('playing ' + song)
-            # pywhatkit.playonyt(song)
+            try:
+                song = command.replace('play', '')
+                talk('playing ' + song)
+                # py.playonyt('jai ho')
+            except Exception as e:
+                print e
         elif 'time' in command:
             time = datetime.datetime.now().strftime('%I:%M %p')
             talk('Current time is ' + time)
@@ -65,7 +68,7 @@ def run_phoenix():
             talk(now.strftime("%A"))
         elif 'joke' in command:
             talk(pyjokes.get_joke())
-        elif 'bye' in command:
+        elif 'bye' in command or 'good night' in command or 'see you' in command:
             flag = False
         elif(command==''):
             talk('Please say the command again or speak up something.')
