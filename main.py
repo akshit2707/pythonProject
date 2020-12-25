@@ -19,15 +19,15 @@ def talk(text):
 
 def take_command():
     try:
-
+        command = ''
         with sr.Microphone() as source:
 
             print('listening...')
             voice = listener.listen(source)
             command = listener.recognize_google(voice)
             command = command.lower()
-            if 'pheonix' in command:
-                command = command.replace('pleonix', '')
+            if 'phoenix' in command:
+                command = command.replace('ploenix', '')
                 print(command)
 
     except Exception as e:
@@ -35,13 +35,15 @@ def take_command():
     return command
 
 
-def run_pheonix():
+def run_phoenix():
     flag = True
     while(flag):
 
         command = take_command()
         print(command)
-        if 'hello world' in command:
+        if 'hey' in command:
+            talk('hi user, how are you today. hope you are fine ')
+        elif 'hello world' in command:
             talk('Nigga what')
 
         elif 'play' in command:
@@ -65,11 +67,11 @@ def run_pheonix():
             talk(pyjokes.get_joke())
         elif 'bye' in command:
             flag = False
-        # elif '' in command:
-        #     talk('Please say the command again.')
+        elif(command==''):
+            talk('Please say the command again or speak up something.')
         else:
             talk('Sorry, akshit did not trained me for this')
 
 
 
-run_pheonix()
+run_phoenix()
