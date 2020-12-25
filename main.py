@@ -59,10 +59,14 @@ def run_phoenix():
             time = datetime.datetime.now().strftime('%I:%M %p')
             talk('Current time is ' + time)
         elif 'who is' in command:
-            person = command.replace('who is', '')
-            info = wikipedia.summary(person, 2)
-            print(info)
-            talk(info)
+            try:
+                person = command.replace('who is', '')
+                info = wikipedia.summary(person, 2)
+                print(info)
+                talk(info)
+            except Exception as e:
+                print e
+                talk('Sorry Dude, No info')
         elif 'date' in command:
             talk(datetime.date.today())
         elif 'day today' in command:
@@ -71,6 +75,7 @@ def run_phoenix():
         elif 'joke' in command:
             talk(pyjokes.get_joke())
         elif 'bye' in command or 'good night' in command or 'see you' in command:
+            talk('Its been a long day, without you my friend. And I tell you all about it when I see you again ,Take Care')
             flag = False
         elif(command==''):
             talk('Please say the command again or speak up something.')
