@@ -29,12 +29,13 @@ def take_command():
             if 'pheonix' in command:
                 command = command.replace('pleonix', '')
                 print(command)
+
     except Exception as e:
             print(e)
     return command
 
 
-def run_alexa():
+def run_pheonix():
     flag = True
     while(flag):
 
@@ -70,4 +71,5 @@ def run_alexa():
             talk('Sorry, akshit did not trained me for this')
 
 
-run_alexa()
+
+run_pheonix()
