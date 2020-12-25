@@ -26,9 +26,7 @@ def take_command():
             voice = listener.listen(source)
             command = listener.recognize_google(voice)
             command = command.lower()
-            if 'phoenix' in command:
-                command = command.replace('ploenix', '')
-                print(command)
+
 
     except Exception as e:
             print(e)
@@ -39,10 +37,14 @@ def run_phoenix():
     flag = True
     while(flag):
 
+
         command = take_command()
         print(command)
-        if 'hey' in command or command == 'hello':
+
+        if 'phoenix' in command:
             talk('hi user, how are you today. hope you are fine ')
+            command = command.replace('phoenix', '')
+
         elif 'hello world' in command:
             talk('Nigga what')
 
