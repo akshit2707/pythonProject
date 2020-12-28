@@ -4,6 +4,9 @@ import pyttsx3
 import datetime
 import wikipedia
 import pyjokes
+from googlesearch.googlesearch import GoogleSearch
+import webbrowser
+
 
 listener = sr.Recognizer()
 engine = pyttsx3.init()
@@ -43,7 +46,8 @@ def run_phoenix():
 
         if 'phoenix' in command:
             talk('hi user, how are you today. hope you are fine ')
-            command = command.replace('phoenix', '')
+            # command = command.replace('phoenix', '')
+
 
         elif 'hello world' in command:
             talk('Nigga what')
@@ -52,7 +56,9 @@ def run_phoenix():
             try:
                 song = command.replace('play', '')
                 talk('playing ' + song)
-                # py.playonyt(song)
+                url = 'www.youtube.com/results?search_query='+song
+                webbrowser.open_new(url)
+
             except Exception as e:
                 print e
         elif 'time' in command:
@@ -80,7 +86,10 @@ def run_phoenix():
         elif(command==''):
             talk('Please say the command again or speak up something.')
         else:
-            talk('Sorry, Akshit did not trained me for this')
+            talk('Here is some results from google to help you with')
+
+            url = "https://www.google.co.in/search?q="+command
+            webbrowser.open_new(url)
 
 
 
